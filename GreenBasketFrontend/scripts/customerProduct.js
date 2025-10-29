@@ -2,7 +2,7 @@
 let data;
 window.onload=getdata()
  async function getdata(){
-    let res = await fetch(`http://localhost:8083/vegetables`)
+    let res = await fetch(`http://backend:9050/vegetables`)
     data = await res.json()
     console.log(data);
     console.log("yes");
@@ -75,7 +75,7 @@ console.log(key);
      redirect: 'follow'
    };
    
-   fetch(`http://localhost:8083/add/${id}/${key}`, requestOptions)
+   fetch(`http://backend:9050/add/${id}/${key}`, requestOptions)
      .then(response => response.json())
      .then(result => {
       if(result.message=="Product is already added into cart"){
@@ -102,7 +102,7 @@ let countRequestOptions = {
   redirect: 'follow'
 };
 
-fetch(`http://localhost:8083/count/${key}`, countRequestOptions)
+fetch(`http://backend:9050/count/${key}`, countRequestOptions)
   .then(response => response.text())
   .then(count => {
 
@@ -132,7 +132,7 @@ fetch(`http://localhost:8083/count/${key}`, countRequestOptions)
       redirect: 'follow'
     };
     
-    fetch(`http://localhost:8083/userlogout/${key}`, logoutRequestOptions)
+    fetch(`http://backend:9050/userlogout/${key}`, logoutRequestOptions)
       .then(response => response.text())
       .then(result => {
         console.log(result);

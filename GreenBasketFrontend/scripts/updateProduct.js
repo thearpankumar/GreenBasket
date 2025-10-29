@@ -11,7 +11,7 @@ console.log(key);
 let data;
 window.onload=getdata()
  async function getdata(){
-    let res = await fetch(`http://localhost:8083/vegetables`)
+    let res = await fetch(`http://backend:9050/vegetables`)
     data = await res.json()
     console.log(data);
     console.log("yes");
@@ -134,7 +134,7 @@ window.onload=getdata()
 //   })
 //   .catch(error => console.log('error', error));
 
-fetch(`http://localhost:8083/vegetable/${key}`, requestOptions)
+fetch(`http://backend:9050/vegetable/${key}`, requestOptions)
   .then(response => response.text())
   .then(result => {
     console.log(result);

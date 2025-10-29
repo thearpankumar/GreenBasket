@@ -14,7 +14,7 @@ async function loginUser(event){
     var password = document.getElementById('userPassword').value;
 
 // http://127.0.0.1:5500/userLogin.html
-postAPI('http://localhost:8083/userlogin', {
+postAPI('http://backend:9050/userlogin', {
     emailId:email,
     password:password
 });

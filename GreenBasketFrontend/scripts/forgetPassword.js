@@ -24,7 +24,7 @@ async function loginUser(event){
       redirect: 'follow'
     };
     
-    fetch(`http://localhost:8083/customer/${email}/${phone}/${password}`, requestOptions)
+    fetch(`http://backend:9050/customer/${email}/${phone}/${password}`, requestOptions)
       .then(response => response.text())
       .then(result => {
         console.log(result);

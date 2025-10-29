@@ -13,7 +13,7 @@ console.log(key);
 let cartdata;
 window.onload=getCartData(key)
   async function getCartData(key){
-    let res = await fetch(`http://localhost:8083/view/${key}`)
+    let res = await fetch(`http://backend:9050/view/${key}`)
     cartdata = await res.json()
     console.log(cartdata);
    
@@ -142,7 +142,7 @@ window.onload=getCartData(key)
     redirect: 'follow'
     };
 
-      fetch(`http://localhost:8083/remove/${vegId}/${key}`, requestOptionsOfDelete)
+      fetch(`http://backend:9050/remove/${vegId}/${key}`, requestOptionsOfDelete)
      .then(response => response.text())
      .then(result => console.log(result))
       .catch(error => console.log('error', error));
@@ -163,7 +163,7 @@ window.onload=getCartData(key)
   redirect: 'follow'
  };
 
-  fetch(`http://localhost:8083/ince/${vegId}/${key}`, requestOptionsOfIncr)
+  fetch(`http://backend:9050/ince/${vegId}/${key}`, requestOptionsOfIncr)
    .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -183,7 +183,7 @@ window.onload=getCartData(key)
     redirect: 'follow'
    };
 
-    fetch(`http://localhost:8083/decr/${vegId}/${key}`, requestOptionsOfDecr)
+    fetch(`http://backend:9050/decr/${vegId}/${key}`, requestOptionsOfDecr)
    .then(response => response.text())
    .then(result => console.log(result))
    .catch(error => console.log('error', error));
@@ -199,7 +199,7 @@ let countRequestOptions = {
   redirect: 'follow'
 };
 
-fetch(`http://localhost:8083/count/${key}`, countRequestOptions)
+fetch(`http://backend:9050/count/${key}`, countRequestOptions)
   .then(response => response.text())
   .then(count => {
 
@@ -223,7 +223,7 @@ let subTotalRequestOptions = {
   redirect: 'follow'
 };
 
-fetch(`http://localhost:8083/getTotalAmount/${key}`, subTotalRequestOptions)
+fetch(`http://backend:9050/getTotalAmount/${key}`, subTotalRequestOptions)
   .then(response => response.text())
   .then(result => {
     console.log(result)
@@ -252,7 +252,7 @@ fetch(`http://localhost:8083/getTotalAmount/${key}`, subTotalRequestOptions)
      redirect: 'follow'
    };
    
-   fetch(`http://localhost:8083/userlogout/${key}`, logoutRequestOptions)
+   fetch(`http://backend:9050/userlogout/${key}`, logoutRequestOptions)
      .then(response => response.text())
      .then(result => {
        console.log(result);

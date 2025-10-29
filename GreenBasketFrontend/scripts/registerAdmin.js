@@ -29,7 +29,7 @@ async function registerAdmin(event){
       redirect: 'follow'
     };
     
-    fetch("http://localhost:8083/admin", requestOptions)
+    fetch("http://backend:9050/admin", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));

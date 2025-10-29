@@ -39,7 +39,7 @@ var requestOptions = {
 
 
 
-fetch(`http://localhost:8083/vegetable/${key}`, requestOptions)
+fetch(`http://backend:9050/vegetable/${key}`, requestOptions)
   .then(response => response.text())
   .then(result => {
    console.log(result)
@@ -57,7 +57,7 @@ fetch(`http://localhost:8083/vegetable/${key}`, requestOptions)
 let data;
 window.onload=getdata()
  async function getdata(){
-    let res = await fetch(`http://localhost:8083/vegetables`)
+    let res = await fetch(`http://backend:9050/vegetables`)
     data = await res.json()
     console.log(data);
     console.log("yes");
@@ -118,7 +118,7 @@ window.onload=getdata()
       redirect: 'follow'
     };
     
-    fetch(`http://localhost:8083/vegetable/${id}/${key}`, requestOptions)
+    fetch(`http://backend:9050/vegetable/${id}/${key}`, requestOptions)
       .then(response => response.text())
       .then(result => {
          console.log(result);
@@ -146,7 +146,7 @@ async function userLogout(event){
     redirect: 'follow'
   };
   
-  fetch(`http://localhost:8083/userlogout/${key}`, logoutRequestOptions)
+  fetch(`http://backend:9050/userlogout/${key}`, logoutRequestOptions)
     .then(response => response.text())
     .then(result => {
       console.log(result);

@@ -47,7 +47,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost:8083/customer", requestOptions)
+fetch("http://backend:9050/customer", requestOptions)
   .then(response => response.text())
   .then(result => {
     alert("Customer registered")

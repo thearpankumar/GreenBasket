@@ -8,7 +8,7 @@ let id = user[0].id;
 let orderdata;
 window.onload= getOrderData(key);
   async function getOrderData(key){
-    let res = await fetch(`http://localhost:8083/getOrders/${key}`)
+    let res = await fetch(`http://backend:9050/getOrders/${key}`)
     orderdata = await res.json()
     console.log(orderdata);
    
@@ -123,7 +123,7 @@ async function userLogout(event){
     redirect: 'follow'
   };
   
-  fetch(`http://localhost:8083/userlogout/${key}`, logoutRequestOptions)
+  fetch(`http://backend:9050/userlogout/${key}`, logoutRequestOptions)
     .then(response => response.text())
     .then(result => {
       console.log(result);
