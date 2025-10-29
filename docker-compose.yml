@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./GreenBasketBackend
+    ports:
+      - "9050:9050"
+    environment:
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_NAME=greenBasket
+      - DB_USERNAME=root
+      - DB_PASSWORD=work#$SQL12
+    depends_on:
+      - database
+    networks:
+      - greenbasket-network
+
+  frontend:
+    build:
+      context: ./GreenBasketFrontend
+    ports:
+      - "9051:80"  # Map container port 80 to host port 9051
+    depends_on:
+      - backend
+    networks:
+      - greenbasket-network
+    environment:
+      - BACKEND_URL=backend:9050  # Make backend service available to frontend
+
+  database:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=work#$SQL12
+      - MYSQL_DATABASE=greenBasket
+      - MYSQL_USER=root
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - greenbasket-network
+
+volumes:
+  mysql_data:
+
+networks:
+  greenbasket-network:
+    driver: bridge
